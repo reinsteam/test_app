@@ -1,7 +1,7 @@
 
 
 #pragma warning(push)
-#pragma warning(disable : 4001 4710)
+#pragma warning(disable : 4001 4255 4710 4820)
 #include <stdio.h>
 #pragma warning(pop)
 
