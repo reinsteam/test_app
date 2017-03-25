@@ -2,7 +2,10 @@ version: 0.0.{build}
 
 platform:
   - MSVC_2008_x86
-  - MSVC_2008_x64
+  - MSVC_2010_x86
+  - MSVC_2010_x64
+  - MSVC_2012_x86
+  - MSVC_2012_x64
 
 build_script:
   - scripts\ci-build.bat
