@@ -4,5 +4,15 @@ project(test_app C)
 add_definitions(-D_TEST_DEFINE)
 add_definitions(-DTEST_DEFINE_VALUE=1)
 
+if (MSVC)
+    set(CMAKE_C_FLAGS "/c /nologo /Wall /WX /Za /GR-")
+    set(CMAKE_C_FLAGS_RELEASE "/O2 /GL /GS-")
+    set(CMAKE_C_FLAGS_DEBUG "/Od /GL- /GS")
+
+    #message( STATUS "CMAKE_C_FLAGS: " ${CMAKE_C_FLAGS} )
+    #message( STATUS "CMAKE_C_FLAGS_RELEASE: " ${CMAKE_C_FLAGS_RELEASE} )
+    #message( STATUS "CMAKE_C_FLAGS_DEBUG: " ${CMAKE_C_FLAGS_DEBUG} )
+endif()
+
 file(GLOB test_app_source "source/*.c")
 add_executable(test_app ${test_app_source})

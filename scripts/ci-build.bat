@@ -20,6 +20,14 @@ if not [x%PLATFORM:2012=%]==[x%PLATFORM%] (
     set msvc_gen_name=%msvc_gen_name% 11 2012
 )
 
+if not [x%PLATFORM:2013=%]==[x%PLATFORM%] (
+    set msvc_gen_name=%msvc_gen_name% 12 2013
+)
+
+if not [x%PLATFORM:2015=%]==[x%PLATFORM%] (
+    set msvc_gen_name=%msvc_gen_name% 14 2015
+)
+
 :select_arch
 
 if not [x%PLATFORM:x64=%]==[x%PLATFORM%] set msvc_gen_name=%msvc_gen_name% Win64

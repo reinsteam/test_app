@@ -1,6 +1,13 @@
-#include <stdio.h>
 
-int main()
+
+#pragma warning(push)
+#pragma warning(disable : 4001 4710)
+#include <stdio.h>
+#pragma warning(pop)
+
+#pragma warning(disable : 4710)
+
+int main(void)
 {
     printf("Test !");
 
