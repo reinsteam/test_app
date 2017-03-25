@@ -5,6 +5,10 @@ platform:
   - MSVC_2010_x86
   - MSVC_2012_x86
   - MSVC_2012_x64
+  - MSVC_2013_x86
+  - MSVC_2013_x64
+  - MSVC_2015_x86
+  - MSVC_2015_x64
 
 build_script:
   - scripts\ci-build.bat
