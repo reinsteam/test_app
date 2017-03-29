@@ -1,11 +1,11 @@
 
 
-#pragma warning(push)
-#pragma warning(disable : 4001 4255 4710 4820)
+__pragma(warning(push))
+__pragma(warning(disable : 4001 4255 4710 4820))
 #include <stdio.h>
-#pragma warning(pop)
+__pragma(warning(pop))
 
-#pragma warning(disable : 4710)
+__pragma(warning(disable : 4710))
 
 int main(void)
 {
