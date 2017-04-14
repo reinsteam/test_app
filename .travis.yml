@@ -1,0 +1,24 @@
+language: c
+
+os:
+  -linux
+  -osx
+
+compiler:
+  -gcc
+  -clang
+
+env:
+  - CONFIG=Debug
+  - CONFIG=Release
+
+matrix:
+  exclude:
+  - os: osx
+    compiler: gcc
+
+before_script:
+  - mkdir build_$CONFIG
+  - cd build_$CONFIG
+  - cmake ..
+  - cmake -- build . --config $CONFIG
