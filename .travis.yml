@@ -9,8 +9,8 @@ compiler:
   - clang
 
 env:
-  - CONFIG=Debug
-  - CONFIG=Release
+  - TEST_APP_CONFIG=Debug
+  - TEST_APP_CONFIG=Release
 
 matrix:
   exclude:
@@ -27,7 +27,7 @@ install:
 
 
 before_script:
-  - mkdir build_$CONFIG
-  - cd build_$CONFIG
+  - mkdir build_$TEST_APP_CONFIG
+  - cd build_$TEST_APP_CONFIG
   - cmake ..
-  - cmake -- build . --config $CONFIG
+  - cmake -- build . --config $TEST_APP_CONFIG
