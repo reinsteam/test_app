@@ -52,3 +52,6 @@ script:
   - cd build_$TEST_APP_CONFIG
   - cmake ..
   - cmake --build . --config $TEST_APP_CONFIG
+
+after_script:
+  - ./$TEST_APP_CONFIG/test_app
