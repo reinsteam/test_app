@@ -42,7 +42,7 @@ install:
 before_script:
   - if [[ -n "$COMPILER_CLANG_4" ]]; then export PATH="${CLANG_4_PATH}/bin:$PATH"                                                             ;fi
   - if [[ -n "$COMPILER_CLANG_4" ]]; then export CC="clang"                                                                                   ;fi
-  - if [[ -n "$COMPILER_CLANG_4" ]]; then export CCFLAGS="$CCFLAGS -I${CLANG_4_PATH}/include                                                  ;fi
+  - if [[ -n "$COMPILER_CLANG_4" ]]; then export CCFLAGS="$CCFLAGS -I${CLANG_4_PATH}/include"                                                 ;fi
   - if [[ -n "$COMPILER_CLANG_4" ]]; then export LDFLAGS="$LDFLAGS -L${CLANG_4_PATH}/lib"                                                     ;fi
 
 script:
