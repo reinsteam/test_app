@@ -19,8 +19,10 @@ matrix:
   include:
     - compiler: clang "Clang-4.0.0-Debug"
       env: TEST_APP_CONFIG=Debug    COMPILER_CLANG_4=yes
+      os: osx
     - compiler: clang "Clang-4.0.0-Release"
       env: TEST_APP_CONFIG=Release  COMPILER_CLANG_4=yes
+      os: osx
 
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget --no-check-certificate http://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.tar.gz   ;fi
