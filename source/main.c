@@ -1,11 +1,22 @@
 
+#ifdef _MSC_VER
+#   define DISABLE_WARNINGS_MSVC(x) \
+    __pragma(warning(push)) \
+    __pragma(warning(disable : 4001 4255 4710 4820))
+#   define RESTORE_WARNINGS_MSVC() \
+    __pragma(warning(pop))
+#else
+#   define DISABLE_WARNINGS_MSVC(x)
+#   define RESTORE_WARNINGS_MSVC()
+#endif
 
-__pragma(warning(push))
-__pragma(warning(disable : 4001 4255 4710 4820))
+
+DISABLE_WARNINGS_MSVC(4001 4255 4710 4820)
 #include <stdio.h>
-__pragma(warning(pop))
+RESTORE_WARNINGS_MSVC()
 
-__pragma(warning(disable : 4710))
+
+DISABLE_WARNINGS_MSVC(4710)
 
 int main(void)
 {
