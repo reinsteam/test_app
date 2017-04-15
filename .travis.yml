@@ -29,5 +29,5 @@ install:
 before_script:
   - mkdir build_$TEST_APP_CONFIG
   - cd build_$TEST_APP_CONFIG
-  - cmake ..
-  - cmake -- build . --config $TEST_APP_CONFIG
+  - cmake .. -DTRAVIS_BUILD
+  - cmake --build . --config $TEST_APP_CONFIG
