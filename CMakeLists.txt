@@ -14,5 +14,9 @@ if (MSVC)
     #message( STATUS "CMAKE_C_FLAGS_DEBUG: " ${CMAKE_C_FLAGS_DEBUG} )
 endif()
 
+if (CMAKE_C_COMPILER_ID MATCHES "Clang")
+    set(CMAKE_C_FLAGS "-c -MD -std=c89 -Weverything")
+endif()
+
 file(GLOB test_app_source "source/*.c")
 add_executable(test_app ${test_app_source})
