@@ -30,13 +30,13 @@ install:
   - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then tar -xzf cmake-3.8.0-Darwin-x86_64.tar.gz                                                 ;fi
   - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then export PATH=$PWD/cmake-3.8.0-Darwin-x86_64/CMake.app/Contents/bin:$PATH                   ;fi
 # Clang 4.0.0 setup (Linux)
-  - if [[ "$TRAVIS_OS_NAME" == "linux" && -n "$COMPILER_CLANG_4"]]; then wget --no-check-certificate http://releases.llvm.org/4.0.0/clang+llvm-4.0.0-x86_64-linux-gnu-ubuntu-14.04.tar.xz   ;fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" && -n "$COMPILER_CLANG_4"]]; then tar -xzf clang+llvm-4.0.0-x86_64-linux-gnu-ubuntu-14.04.tar.xz                                                     ;fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" && -n "$COMPILER_CLANG_4"]]; then export CLANG_4_PATH=$(PWD)/clang+llvm-4.0.0-x86_64-linux-gnu-ubuntu-14.04/                                         ;fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" && -n "$COMPILER_CLANG_4" ]]; then wget --no-check-certificate http://releases.llvm.org/4.0.0/clang+llvm-4.0.0-x86_64-linux-gnu-ubuntu-14.04.tar.xz   ;fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" && -n "$COMPILER_CLANG_4" ]]; then tar -xzf clang+llvm-4.0.0-x86_64-linux-gnu-ubuntu-14.04.tar.xz                                                     ;fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" && -n "$COMPILER_CLANG_4" ]]; then export CLANG_4_PATH=$(PWD)/clang+llvm-4.0.0-x86_64-linux-gnu-ubuntu-14.04/                                         ;fi
 # Clang 4.0.0 setup (OSX)
-  - if [[ "$TRAVIS_OS_NAME" == "osx" && -n "$COMPILER_CLANG_4"]]; then wget --no-check-certificate http://releases.llvm.org/4.0.0/clang+llvm-4.0.0-x86_64-apple-darwin.tar.xz             ;fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" && -n "$COMPILER_CLANG_4"]]; then tar -xzf clang+llvm-4.0.0-x86_64-apple-darwin.tar.xz                                                               ;fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" && -n "$COMPILER_CLANG_4"]]; then export CLANG_4_PATH=$(PWD)/clang+llvm-4.0.0-x86_64-apple-darwin/                                                   ;fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" && -n "$COMPILER_CLANG_4" ]]; then wget --no-check-certificate http://releases.llvm.org/4.0.0/clang+llvm-4.0.0-x86_64-apple-darwin.tar.xz             ;fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" && -n "$COMPILER_CLANG_4" ]]; then tar -xzf clang+llvm-4.0.0-x86_64-apple-darwin.tar.xz                                                               ;fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" && -n "$COMPILER_CLANG_4" ]]; then export CLANG_4_PATH=$(PWD)/clang+llvm-4.0.0-x86_64-apple-darwin/                                                   ;fi
 
 
 before_script:
