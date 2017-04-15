@@ -12,22 +12,29 @@
 
 
 DISABLE_WARNINGS_MSVC(4001 4255 4710 4820)
+#include <stdarg.h>
 #include <stdio.h>
+int printf_custom(const char * format, ...)
+{
+    int result;
+    va_list args;
+    va_start(args, format);
+    result = vprintf(format, args);
+    va_end(args);
+    return result;
+}
 RESTORE_WARNINGS_MSVC()
-
-
-DISABLE_WARNINGS_MSVC(4710)
 
 int main(void)
 {
-    printf("Test !");
+    printf_custom("Test !");
 
 #if defined (_TEST_DEFINE)
-    printf("_TEST_DEFINE defined");
+    printf_custom("_TEST_DEFINE defined");
 #endif
 
 #if defined(TEST_DEFINE_VALUE) && (TEST_DEFINE_VALUE == 1)
-    printf("TEST_DEFINE_VALUE==1 defined");
+    printf_custom("TEST_DEFINE_VALUE==1 defined");
 #endif
 
     return 0;
