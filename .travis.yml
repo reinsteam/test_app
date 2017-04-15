@@ -13,9 +13,6 @@ env:
   - TEST_APP_CONFIG=Release
 
 matrix:
-  exclude:
-    - os: osx
-      compiler: gcc
   include:
     - compiler: clang "Clang-4.0.0-Debug"
       env: TEST_APP_CONFIG=Debug    COMPILER_CLANG_4=yes
