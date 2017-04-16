@@ -9,12 +9,13 @@ if (MSVC)
     set(CMAKE_C_FLAGS_RELEASE "/O2 /GL /GS-")
     set(CMAKE_C_FLAGS_DEBUG "/Od /GL- /GS")
 
-elif(CMAKE_C_COMPILER_ID MATCHES "Clang")
+elseif(CMAKE_C_COMPILER_ID MATCHES "Clang")
     set(CMAKE_C_FLAGS "-MD -std=c89 -Weverything")
+    set( CMAKE_VERBOSE_MAKEFILE on )
 
 else()
 
-    set(CMAKE_C_FLAGS "-x c -ansi -std=c89 -O2 -fno-exceptions -Wall -Wextra -Wpedantic")
+    set(CMAKE_C_FLAGS "-ansi -std=c89 -O2 -fno-exceptions -Wall -Wextra -Wpedantic")
     set( CMAKE_VERBOSE_MAKEFILE on )
 
 endif()
