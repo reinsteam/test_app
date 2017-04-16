@@ -15,7 +15,7 @@ elseif(CMAKE_C_COMPILER_ID MATCHES "Clang")
 
 else()
 
-    set(CMAKE_C_FLAGS "-ansi -std=c89 -O2 -fno-exceptions -Wall -Wextra -Wpedantic")
+    set(CMAKE_C_FLAGS "-ansi -std=c89 -O2 -fno-exceptions -Wall -Wextra -pedantic")
     set( CMAKE_VERBOSE_MAKEFILE on )
 
 endif()
