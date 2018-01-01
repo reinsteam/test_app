@@ -66,16 +66,24 @@ RESTORE_WARNINGS_MSVC()
     #define prm_hw_mem_barrier_release() _mm_sfence()
 
 #elif defined(PRM_GNUC_SSE2_STYLE)
-    #define prm_hw_mem_barrier_seq_cst() asm volatile("mfence" ::: "memory")
-    #define prm_hw_mem_barrier_acquire() asm volatile("lfence" ::: "memory")
-    #define prm_hw_mem_barrier_release() asm volatile("sfence" ::: "memory")
+    #define prm_hw_mem_barrier_seq_cst() __asm__ __volatile__ ("mfence" ::: "memory")
+    #define prm_hw_mem_barrier_acquire() __asm__ __volatile__ ("lfence" ::: "memory")
+    #define prm_hw_mem_barrier_release() __asm__ __volatile__ ("sfence" ::: "memory")
 
 #elif defined(PRM_MSVC_PRE_SSE2_STYLE)
 
     PRM_EXTERN_C long _InterlockedExchange(long volatile * mem, long val);
     #pragma intrinsic(_InterlockedExchange)
 
-    #define prm_hw_mem_barrier_seq_cst() do { long Dummy; _InterlockedExchange(&Dummy, 0); } while (0)
+    #define prm_while_0 \
+        __pragma(warning(push)) \
+        __pragma(warning(disable : 4127)) \
+        while(0) \
+        __pragma(warning(pop))
+
+    #define prm_hw_mem_barrier_seq_cst() do { long Dummy; _InterlockedExchange(&Dummy, 0); } prm_while_0
+
+    #undef prm_while_0
 
 #elif defined(PRM_GNUC_PRE_SSE2_STYLE)
     #define prm_hw_mem_barrier_seq_cst() __sync_synchronize()
