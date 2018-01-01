@@ -83,7 +83,6 @@ RESTORE_WARNINGS_MSVC()
 
     #define prm_hw_mem_barrier_seq_cst() do { long Dummy; _InterlockedExchange(&Dummy, 0); } prm_while_0
 
-    #undef prm_while_0
 
 #elif defined(PRM_GNUC_PRE_SSE2_STYLE)
     #define prm_hw_mem_barrier_seq_cst() __sync_synchronize()
@@ -110,7 +109,7 @@ RESTORE_WARNINGS_MSVC()
     #define prm_sw_mem_barrier_release() _WriteBarrier()
 
 #elif defined(PRM_GNUC_SSE2_STYLE) || defined(PRM_GNUC_PRE_SSE2_STYLE)
-    #define prm_sw_mem_barrier_seq_cst() asm volatile("" ::: "memory")
+    #define prm_sw_mem_barrier_seq_cst() __asm__ __volatile__ ("" ::: "memory")
     #define prm_sw_mem_barrier_acquire() prm_sw_mem_barrier_seq_cst()
     #define prm_sw_mem_barrier_release() prm_sw_mem_barrier_seq_cst()
 
